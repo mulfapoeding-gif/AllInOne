@@ -57,6 +57,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: Remove temporary certificate
+      if: always()
       run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
 
     - name: Upload MSIX artifacts
